@@ -10,4 +10,12 @@ export default defineConfig({
       provider: 'v8',
     },
   },
+  resolve: {
+    alias: {
+      '@': '/src',
+      '@routes': '/src/routes',
+      '@pages': '/src/pages',
+      '@hooks': '/src/hooks',
+    },
+  },
 })
