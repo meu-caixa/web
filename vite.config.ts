@@ -16,6 +16,7 @@ export default defineConfig({
       '@routes': '/src/routes',
       '@pages': '/src/pages',
       '@hooks': '/src/hooks',
+      '@api': '/src/api',
     },
   },
 })

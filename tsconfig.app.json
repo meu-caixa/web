@@ -28,6 +28,7 @@
       "@routes/*": ["routes/*"],
       "@pages/*": ["pages/*"],
       "@hooks/*": ["hooks/*"],
+      "@api/*": ["api/*"],
     }
   },
   "include": ["src"]

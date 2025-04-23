@@ -1,7 +1,7 @@
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, LoginFormInputs } from "./schema";
-import { Button, Form, Input, Typography } from "antd";
+import { Button, Form, Input, Typography, message } from "antd";
 import { useAuth } from "@hooks/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
@@ -21,8 +21,18 @@ export default function LoginPage() {
   });
 
   const onSubmit = async (data: LoginFormInputs) => {
-    const success = await login(data.email, data.password);
-    if (success) navigate("/dashboard");
+    try {
+      const success = await login(data.email, data.password);
+      if (success) {
+        navigate("/dashboard");
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        message.error(error.message);
+      } else {
+        message.error("An unexpected error occurred.");
+      }
+    }
   };
 
   return (

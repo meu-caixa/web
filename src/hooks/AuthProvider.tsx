@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import { loginApi } from "@api/auth";
 
 type AuthContextType = {
   isAuthenticated: boolean;
@@ -17,12 +18,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
-    if (email === "admin@example.com" && password === "password") {
-      localStorage.setItem("token", "mock-token");
-      setIsAuthenticated(true);
-      return true;
-    }
-    return false;
+    const response = await loginApi(email, password);
+    localStorage.setItem("token", response.token);
+    setIsAuthenticated(true);
+    return true;
   };
 
   const logout = () => {
