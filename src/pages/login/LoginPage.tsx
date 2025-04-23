@@ -38,7 +38,7 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
       <div className="w-full max-w-md rounded bg-white p-8 shadow-md">
-        <Title level={2}>Login</Title>
+        <Title level={2}>Login Page</Title>
         <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
 
           <Form.Item
