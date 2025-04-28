@@ -1,7 +1,9 @@
 # Dependencies
 - vite + vitest
 - antd
-- zop + hook form
+- zod + hook form
+- add e2e test
+- add page login test (unit)
 
 
 # React + TypeScript + Vite
