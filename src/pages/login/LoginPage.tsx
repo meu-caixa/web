@@ -26,8 +26,12 @@ export default function LoginPage() {
             if (success) {
                 navigate("/dashboard");
             }
-        } catch (error: Error) {
-            message.error(error.message);
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                message.error(error.message);
+            } else {
+                message.error("An unknown error occurred");
+            }
         }
     };
 
