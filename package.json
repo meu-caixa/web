@@ -9,9 +9,12 @@
     "lint": "eslint . --quiet",
     "preview": "vite preview",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
+    "cover:ut": "vitest run --coverage",
     "cy:open": "vite & cypress open",
-    "cy:run": "vite & cypress run"
+    "cover:it": "vite & cypress run",
+    "cover:merge": "nyc merge coverage/unit coverage/coverage-final.json",
+    "cover:report": "nyc report --report-html",
+    "posttest": "npm run lint && npm run cover:ut && npm run cover:it && npm run cover:merge && npm run cover:report"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -22,6 +25,7 @@
     "zod": "^3.24.3"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.14.0",
     "@eslint/js": "^9.22.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -42,6 +46,7 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1",
+    "vite-plugin-istanbul": "^7.0.0",
     "vitest": "^3.1.2"
   },
   "msw": {
